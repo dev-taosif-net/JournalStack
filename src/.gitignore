@@ -1,0 +1,46 @@
+# .gitignore for .NET / Rider projects
+
+# Build Folders
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+*.DotSettings.user
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test results
+TestResults/
+
+# Docker artifacts
+**/Container/
+
+# Lock files
+project.assets.json
+
+# Ignore generated Rider/MSBuild debug folders
+**/bin/Debug/
+**/bin/Release/
+**/obj/Debug/
+**/obj/Release/
+
+# Keep this file tracked
+!/.gitignore
