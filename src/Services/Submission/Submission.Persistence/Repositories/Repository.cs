@@ -4,7 +4,7 @@ using Blocks.EntityFrameworkCore.Repositories;
 namespace Submission.Persistence.Repositories;
 
 public class Repository<TEntity>(SubmissionDbContext context)
-    : Repository<SubmissionDbContext, TEntity> (context, context.Set<TEntity>())
+    : Repository<SubmissionDbContext, TEntity> (context)
     where TEntity : class , IEntity
 {
 }
