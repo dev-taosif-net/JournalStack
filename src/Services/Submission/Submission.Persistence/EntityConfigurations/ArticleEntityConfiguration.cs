@@ -1,16 +1,13 @@
+using Blocks.EntityFrameworkCore.EntityConfigurations;
+
 namespace Submission.Persistence.EntityConfigurations;
 
-internal class ArticleEntityConfiguration : IEntityTypeConfiguration<Article>
+internal class ArticleEntityConfiguration : EntityConfiguration<Article>
 {
-    public void Configure(EntityTypeBuilder<Article> builder)
+    public override void Configure(EntityTypeBuilder<Article> builder)
     {
-        builder.HasKey(x => x.Id);
-
-        builder.Property(x => x.Id)
-            .ValueGeneratedOnAdd()
-            .HasColumnOrder(0)
-            .IsRequired();
-
+        base.Configure(builder);
+        
         builder.Property(x => x.Title)
             .IsRequired()
             .HasMaxLength(256);

@@ -1,6 +1,8 @@
+using Blocks.Domain.Entities;
+
 namespace Submission.Domain.Entities;
 
-public partial class Journal
+public partial class Journal : IEntity
 {
     public long Id { get; init; }
     public required string Name { get; set; }
