@@ -1,16 +1,31 @@
+using Submission.API;
 using Submission.API.Endpoints;
+using Submission.Application;
+using Submission.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddAuthentication();  
-builder.Services.AddAuthorization();
+
+#region Add
+
+builder.Services
+    .AddApiServices(builder.Configuration)
+    .AddApplicationServices(builder.Configuration)
+    .AddPersistenceServices(builder.Configuration)
+    ;
+
+#endregion
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+#region Use
 
-app.UseAuthentication();
-app.UseAuthorization();
+app
+    .UseSwagger()
+    .UseSwaggerUI()
+    .UseRouting();
 
 app.MapAllEndpoints();
+
+#endregion
 
 app.Run();
